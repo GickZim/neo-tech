@@ -1,0 +1,1807 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Neo Tech — Digital Experiences, Websites &amp; Custom Systems</title>
+    <meta
+      name="description"
+      content="Neo Tech builds high-quality websites, digital platforms and custom systems for businesses, personal brands and ambitious organisations."
+    />
+    <meta
+      property="og:title"
+      content="Neo Tech — Digital Experiences, Websites & Custom Systems"
+    />
+    <meta
+      property="og:description"
+      content="Neo Tech builds high-quality websites, digital platforms and custom systems for businesses, personal brands and ambitious organisations."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0B1220" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1220'/%3E%3Cpath d='M8 24V8l16 16V8' fill='none' stroke='%23D4AF37' stroke-width='3'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b1220;
+        --bg2: #111a2b;
+        --line: #263247;
+        --fg: #f5f7fa;
+        --mute: #a7b0c0;
+        --gold: #d4af37;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+        margin: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(96px + env(safe-area-inset-top, 0px));
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          400 16px/1.6 Inter,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        width: 100%;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      section {
+        padding: 72px 0;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+      }
+      h1,
+      h2,
+      h3 {
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-weight: 600;
+      }
+      h1 {
+        font-size: clamp(34px, 8vw, 64px);
+        margin: 16px 0 20px;
+        max-width: 14em;
+      }
+      h2 {
+        font-size: clamp(28px, 5.5vw, 42px);
+        margin: 10px 0 12px;
+      }
+      h3 {
+        font-size: 19px;
+        line-height: 1.3;
+      }
+      .sub {
+        color: var(--mute);
+        max-width: 36em;
+      }
+      .head {
+        margin-bottom: 36px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 0 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 15px;
+        border: 1px solid var(--line);
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+        font-family: inherit;
+        background: none;
+        color: var(--fg);
+      }
+      .btn:focus-visible,
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 3px;
+      }
+      .btn-p {
+        background: var(--gold);
+        color: #0b1220;
+        border-color: var(--gold);
+      }
+      .btn-p:hover {
+        background: #e6c352;
+        transform: translateY(-1px);
+      }
+      .btn-s:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .ctas .btn {
+        flex: 1 1 180px;
+      }
+      @media (min-width: 600px) {
+        .ctas .btn {
+          flex: 0 0 auto;
+        }
+      }
+      /* nav */
+      header {
+        position: fixed;
+        top: calc(10px + env(safe-area-inset-top, 0px));
+        left: 12px;
+        right: 12px;
+        max-width: 1180px;
+        margin: 0 auto;
+        z-index: 50;
+        border: 1px solid rgba(245, 247, 250, 0.08);
+        border-radius: 14px;
+        background: rgba(11, 18, 32, 0.45);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        backdrop-filter: blur(18px) saturate(140%);
+        box-shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.5);
+        transition:
+          background 0.3s ease,
+          border-color 0.3s ease;
+      }
+      header.sc,
+      header.op {
+        background: rgba(11, 18, 32, 0.82);
+        border-color: rgba(245, 247, 250, 0.12);
+      }
+      @media (min-width: 860px) {
+        header {
+          top: calc(16px + env(safe-area-inset-top, 0px));
+          left: 24px;
+          right: 24px;
+        }
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+      }
+      .logo {
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        font-size: 15px;
+      }
+      .logo b {
+        color: var(--gold);
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 44px;
+      }
+      .mark {
+        height: 28px;
+        width: auto;
+        display: block;
+      }
+      .wm {
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        font-size: 15px;
+        line-height: 1;
+        color: var(--fg);
+      }
+      .wm b {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      @media (min-width: 860px) {
+        .brand {
+          gap: 10px;
+        }
+        .mark {
+          height: 32px;
+        }
+      }
+      .links {
+        display: none;
+        gap: 28px;
+        font-size: 14px;
+        color: var(--mute);
+      }
+      .links a:hover {
+        color: var(--fg);
+      }
+      .nav .btn {
+        min-height: 40px;
+        padding: 0 16px;
+        font-size: 14px;
+      }
+      .burger {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-content: center;
+        gap: 5px;
+        background: none;
+        border: 0;
+        cursor: pointer;
+      }
+      .burger i {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--fg);
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+      }
+      .burger[aria-expanded="true"] i:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .burger[aria-expanded="true"] i:nth-child(2) {
+        opacity: 0;
+      }
+      .burger[aria-expanded="true"] i:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .right .btn {
+        display: none;
+      }
+      .menu {
+        display: none;
+        border-top: 1px solid rgba(245, 247, 250, 0.08);
+        padding: 8px 20px 20px;
+        max-height: calc(100dvh - 100px);
+        overflow: auto;
+      }
+      .menu.open {
+        display: block;
+      }
+      .menu a {
+        display: block;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+        color: var(--mute);
+      }
+      .menu .btn {
+        width: 100%;
+        margin-top: 16px;
+        color: #0b1220;
+      }
+      @media (min-width: 860px) {
+        .links {
+          display: flex;
+        }
+        .burger,
+        .menu {
+          display: none !important;
+        }
+        .right .btn {
+          display: inline-flex;
+        }
+      }
+      /* hero */
+      .hero {
+        padding: 116px 0 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero .wrap {
+        position: relative;
+        display: grid;
+        gap: 40px;
+      }
+      .hero p.sub {
+        font-size: 17px;
+        margin-bottom: 28px;
+      }
+      .vis {
+        position: relative;
+        width: 100%;
+        max-width: 520px;
+        justify-self: center;
+        padding-bottom: 28px;
+      }
+      .vis .shot {
+        border: 1px solid #34425c;
+        border-radius: 10px;
+        box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.65);
+      }
+      .phone {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 26%;
+        aspect-ratio: 9/19;
+        border: 1px solid #34425c;
+        border-radius: 16px;
+        background: #0d1626;
+        overflow: hidden;
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+      }
+      .phone img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .phone.ph {
+        background:
+          linear-gradient(rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0.6)) 50%
+            10px/30% 3px no-repeat,
+          linear-gradient(#1b2740, #1b2740) 50% 26%/76% 6px no-repeat,
+          linear-gradient(#152036, #152036) 50% 42%/76% 28% no-repeat,
+          #0d1626;
+      }
+      @media (min-width: 900px) {
+        .hero {
+          padding: 156px 0 96px;
+        }
+        .hero .wrap {
+          grid-template-columns: 1.2fr 0.8fr;
+          align-items: center;
+        }
+      }
+      /* strip */
+      .strip {
+        border-block: 1px solid var(--line);
+        padding: 22px 0;
+      }
+      .strip .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 28px;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+        color: var(--mute);
+      }
+      .strip strong {
+        color: var(--fg);
+        font-weight: 500;
+      }
+      .strip ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 24px;
+        list-style: none;
+        padding: 0;
+      }
+      .strip li::before {
+        content: "";
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        background: var(--gold);
+        margin-right: 9px;
+        vertical-align: middle;
+      }
+      /* services */
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+      @media (min-width: 700px) {
+        .grid.c2,
+        .grid.c4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1000px) {
+        .grid.c4 {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .grid.c3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 24px;
+        background: var(--bg2);
+        transition: border-color 0.25s;
+      }
+      .card:hover {
+        border-color: rgba(212, 175, 55, 0.5);
+      }
+      .num {
+        font-size: 13px;
+        color: var(--gold);
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        display: block;
+        margin-bottom: 28px;
+      }
+      .card p {
+        color: var(--mute);
+        font-size: 15px;
+        margin: 10px 0 16px;
+      }
+      .card ul {
+        list-style: none;
+        padding: 0;
+        font-size: 14px;
+        color: var(--fg);
+        display: grid;
+        gap: 4px;
+        opacity: 0.85;
+      }
+      .card li::before {
+        content: "–";
+        color: var(--gold);
+        margin-right: 8px;
+      }
+      /* work */
+      .work {
+        display: grid;
+        gap: 56px;
+      }
+      .feat,
+      .sec {
+        display: grid;
+        gap: 24px;
+      }
+      .sec {
+        padding-top: 48px;
+        border-top: 1px solid var(--line);
+      }
+      .feat .shot {
+        border: 1px solid rgba(212, 175, 55, 0.35);
+        border-radius: 10px;
+        box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6);
+      }
+      .sec .shot {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      .ft {
+        display: grid;
+        gap: 14px;
+        align-content: center;
+      }
+      .ft p {
+        color: var(--mute);
+      }
+      .feat h3 {
+        font-size: clamp(28px, 5vw, 40px);
+      }
+      .sec h3 {
+        font-size: 24px;
+      }
+      .acts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 6px;
+      }
+      .acts .btn {
+        flex: 1 1 160px;
+      }
+      @media (min-width: 600px) {
+        .acts .btn {
+          flex: 0 0 auto;
+        }
+      }
+      @media (min-width: 900px) {
+        .feat {
+          grid-template-columns: 1.5fr 1fr;
+          gap: 48px;
+        }
+        .sec {
+          grid-template-columns: 1fr 1.2fr;
+          gap: 40px;
+          align-items: center;
+        }
+        .sec .shot {
+          order: 2;
+        }
+      }
+      .more {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 24px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 22px 24px;
+        border: 1px dashed #34425c;
+        border-radius: 8px;
+      }
+      .more p {
+        color: var(--mute);
+        font-size: 15px;
+      }
+      .more b {
+        color: var(--fg);
+        font-weight: 500;
+      }
+      .cat {
+        font-size: 12px;
+        color: var(--gold);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .tags {
+        font-size: 13px;
+        color: var(--fg);
+        opacity: 0.7;
+      }
+      .shot {
+        aspect-ratio: 16/10;
+        background: #0d1626;
+        position: relative;
+        overflow: hidden;
+      }
+      .shot img {
+        position: absolute;
+        top: 26px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 26px);
+        object-fit: cover;
+      }
+      .bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 26px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0 10px;
+        background: #0f1828;
+        z-index: 1;
+      }
+      .bar i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #2c3a54;
+      }
+      .shot .fr {
+        position: absolute;
+        inset: 26px 0 0 0;
+        background:
+          linear-gradient(#263247, #263247) 5% 12%/34% 6px no-repeat,
+          linear-gradient(#1b2740, #1b2740) 5% 24%/60% 5px no-repeat,
+          linear-gradient(#1b2740, #1b2740) 5% 33%/48% 5px no-repeat,
+          linear-gradient(rgba(212, 175, 55, 0.55), rgba(212, 175, 55, 0.55)) 5%
+            47%/20% 9% no-repeat,
+          linear-gradient(#152036, #152036) 5% 70%/42% 24% no-repeat,
+          linear-gradient(#152036, #152036) 95% 70%/42% 24% no-repeat;
+      }
+      .shot span {
+        position: absolute;
+        right: 10px;
+        bottom: 8px;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--mute);
+        background: var(--bg);
+        padding: 3px 8px;
+        border: 1px solid var(--line);
+        border-radius: 99px;
+      }
+      /* modal */
+      dialog {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--bg);
+        color: var(--fg);
+        width: min(720px, calc(100% - 24px));
+        max-height: calc(100dvh - 24px);
+        padding: 0;
+        margin: auto;
+        overflow: auto;
+      }
+      dialog::backdrop {
+        background: rgba(0, 0, 0, 0.8);
+      }
+      .m {
+        padding: 24px;
+      }
+      .mx {
+        position: sticky;
+        top: 0;
+        float: right;
+        margin: 12px 12px 0 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--fg);
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 2;
+      }
+      .m h2 {
+        margin-top: 8px;
+      }
+      .m h4 {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 24px 0 6px;
+        font-weight: 600;
+      }
+      .m p {
+        color: var(--mute);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chips span {
+        font-size: 13px;
+        border: 1px solid var(--line);
+        padding: 5px 11px;
+        border-radius: 99px;
+        color: var(--fg);
+      }
+      .m .shot {
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        margin: 20px 0;
+      }
+      .m .btn {
+        margin-top: 28px;
+        width: 100%;
+      }
+      @media (min-width: 600px) {
+        .m {
+          padding: 36px;
+        }
+        .m .btn {
+          width: auto;
+        }
+      }
+      /* why / process */
+      .why {
+        display: grid;
+        gap: 0;
+        border-top: 1px solid var(--line);
+      }
+      .why div {
+        padding: 24px 0;
+        border-bottom: 1px solid var(--line);
+        display: grid;
+        gap: 6px;
+      }
+      .why p {
+        color: var(--mute);
+        max-width: 34em;
+      }
+      @media (min-width: 800px) {
+        .why div {
+          grid-template-columns: 1fr 1.4fr;
+          gap: 40px;
+          align-items: baseline;
+        }
+      }
+      .steps {
+        display: grid;
+        gap: 0;
+        counter-reset: s;
+      }
+      .step {
+        padding: 22px 0 22px 20px;
+        border-left: 1px solid var(--line);
+        position: relative;
+      }
+      .step::before {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: 30px;
+        width: 7px;
+        height: 7px;
+        background: var(--gold);
+      }
+      .step p {
+        color: var(--mute);
+        font-size: 15px;
+        margin-top: 4px;
+      }
+      @media (min-width: 800px) {
+        .steps {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
+        }
+        .step {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+          padding: 24px 0 0;
+        }
+        .step::before {
+          left: 0;
+          top: -4px;
+        }
+      }
+      /* about */
+      .about {
+        display: grid;
+        gap: 36px;
+      }
+      .about p {
+        color: var(--mute);
+        margin-bottom: 14px;
+        max-width: 36em;
+      }
+      .about p.lead {
+        color: var(--fg);
+        font-size: 18px;
+      }
+      .founder {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        background: var(--bg2);
+      }
+      .avatar {
+        flex: 0 0 112px;
+        aspect-ratio: 4/5;
+        border: 1px solid #34425c;
+        border-radius: 8px;
+        display: grid;
+        place-content: center;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        color: var(--mute);
+        text-align: center;
+        text-transform: uppercase;
+        background: linear-gradient(180deg, #152036, #0d1626);
+        overflow: hidden;
+        position: relative;
+      }
+      .avatar img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @media (max-width: 519px) {
+        .founder {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .avatar {
+          flex: none;
+          width: 140px;
+        }
+      }
+      .founder p {
+        margin: 4px 0 0;
+        font-size: 14px;
+      }
+      @media (min-width: 860px) {
+        .about {
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: 64px;
+          align-items: start;
+        }
+      }
+      /* cta */
+      .big {
+        border-block: 1px solid var(--line);
+        text-align: left;
+        background: radial-gradient(
+          60% 120% at 100% 100%,
+          rgba(212, 175, 55, 0.08),
+          transparent 60%
+        );
+      }
+      .big h2 {
+        font-size: clamp(32px, 7vw, 56px);
+        max-width: 12em;
+      }
+      .big .sub {
+        margin-bottom: 28px;
+      }
+      /* contact */
+      .contact {
+        display: grid;
+        gap: 36px;
+      }
+      form {
+        display: grid;
+        gap: 16px;
+      }
+      label {
+        font-size: 13px;
+        color: var(--mute);
+        display: grid;
+        gap: 6px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-height: 48px;
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        color: var(--fg);
+        padding: 12px 14px;
+        font: inherit;
+        font-size: 16px;
+      }
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--gold);
+        outline: none;
+      }
+      .row {
+        display: grid;
+        gap: 16px;
+      }
+      @media (min-width: 600px) {
+        .row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .direct {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+      .direct a {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+        transition: color 0.2s;
+      }
+      .direct a:hover {
+        color: var(--gold);
+      }
+      .direct small {
+        color: var(--mute);
+        font-size: 14px;
+        overflow-wrap: anywhere;
+      }
+      .note {
+        font-size: 13px;
+        color: var(--mute);
+      }
+      @media (min-width: 900px) {
+        .contact {
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: 64px;
+        }
+      }
+      /* footer */
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 48px 0 32px;
+        font-size: 14px;
+        color: var(--mute);
+      }
+      .f {
+        display: grid;
+        gap: 28px;
+      }
+      .f nav,
+      .f .soc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 22px;
+      }
+      .f a:hover {
+        color: var(--gold);
+      }
+      .copy {
+        margin-top: 32px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+      }
+      @media (min-width: 800px) {
+        .f {
+          grid-template-columns: 1.4fr 1fr 1fr;
+        }
+      }
+      .btn-wa {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .btn-wa:hover {
+        background: var(--gold);
+        color: #0b1220;
+      }
+      .btn svg,
+      .fab svg {
+        width: 18px;
+        height: 18px;
+        flex: none;
+      }
+      .chat {
+        margin-top: 18px;
+        font-size: 14px;
+        color: var(--mute);
+      }
+      .chat a {
+        color: var(--gold);
+        font-weight: 500;
+      }
+      .chat a:hover {
+        text-decoration: underline;
+      }
+      .direct a.wa {
+        border: 1px solid var(--gold);
+        border-radius: 8px;
+        padding: 18px 20px;
+        background: rgba(212, 175, 55, 0.06);
+        font-weight: 600;
+      }
+      .fab {
+        position: fixed;
+        right: 16px;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        z-index: 40;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 99px;
+        background: var(--gold);
+        color: #0b1220;
+        font-weight: 600;
+        font-size: 14px;
+        box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6);
+      }
+      @media (min-width: 860px) {
+        .fab {
+          display: none;
+        }
+      }
+      @media (max-width: 859px) {
+        footer {
+          padding-bottom: 88px;
+        }
+      }
+      /* atmosphere */
+      .atmo {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .atmo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(245, 247, 250, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(245, 247, 250, 0.03) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(
+          ellipse 70% 60% at 85% 0%,
+          #000,
+          transparent
+        );
+        mask-image: radial-gradient(
+          ellipse 70% 60% at 85% 0%,
+          #000,
+          transparent
+        );
+      }
+      .atmo i {
+        position: absolute;
+        border-radius: 50%;
+        will-change: transform;
+      }
+      .g1 {
+        width: 900px;
+        height: 900px;
+        right: -320px;
+        top: -300px;
+        background: radial-gradient(
+          closest-side,
+          rgba(52, 98, 190, 0.18),
+          transparent
+        );
+        animation: drift 48s ease-in-out infinite alternate;
+      }
+      .g2 {
+        width: 820px;
+        height: 820px;
+        left: -340px;
+        top: 48%;
+        background: radial-gradient(
+          closest-side,
+          rgba(40, 80, 160, 0.12),
+          transparent
+        );
+        animation: drift 60s ease-in-out infinite alternate-reverse;
+      }
+      .g3 {
+        width: 380px;
+        height: 380px;
+        right: 14%;
+        top: 22%;
+        background: radial-gradient(
+          closest-side,
+          rgba(212, 175, 55, 0.05),
+          transparent
+        );
+      }
+      @keyframes drift {
+        to {
+          transform: translate3d(-40px, 30px, 0);
+        }
+      }
+      .hero::before,
+      .hero::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .hero::before {
+        width: 760px;
+        height: 760px;
+        right: -300px;
+        bottom: -320px;
+        background: radial-gradient(
+          closest-side,
+          rgba(60, 110, 210, 0.24),
+          transparent
+        );
+      }
+      .hero::after {
+        width: 320px;
+        height: 320px;
+        right: -40px;
+        bottom: -60px;
+        background: radial-gradient(
+          closest-side,
+          rgba(212, 175, 55, 0.08),
+          transparent
+        );
+      }
+      @media (min-width: 900px) {
+        .hero::before {
+          right: -180px;
+          top: 0;
+          bottom: auto;
+        }
+        .hero::after {
+          right: 6%;
+          top: auto;
+          bottom: -40px;
+        }
+      }
+      /* motion */
+      .rv {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .rv.in {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+        .rv {
+          opacity: 1;
+          transform: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="atmo" aria-hidden="true">
+      <i class="g1"></i><i class="g2"></i><i class="g3"></i>
+    </div>
+    <a
+      href="#main"
+      style="position: absolute; left: -999px"
+      onfocus="this.style.left = '8px'"
+      onblur="this.style.left = '-999px'"
+      >Skip to content</a
+    >
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="#home"
+          ><img
+            class="mark"
+            src="/neo-tech-mark.png"
+            alt="Neo Tech"
+            width="32"
+            height="32"
+            decoding="async"
+          /><span class="wm" aria-hidden="true">NEO <b>TECH</b></span></a
+        >
+        <nav class="links" aria-label="Primary">
+          <a href="#home">Home</a><a href="#services">Services</a
+          ><a href="#work">Work</a><a href="#process">Process</a
+          ><a href="#about">About</a>
+        </nav>
+        <div class="right">
+          <a class="btn btn-p" href="#contact">Start a Project</a
+          ><button
+            class="burger"
+            aria-label="Menu"
+            aria-expanded="false"
+            aria-controls="menu"
+          >
+            <i></i><i></i><i></i>
+          </button>
+        </div>
+      </div>
+      <div class="menu" id="menu">
+        <a href="#home">Home</a><a href="#services">Services</a
+        ><a href="#work">Work</a><a href="#process">Process</a
+        ><a href="#about">About</a
+        ><a class="btn btn-p" href="#contact">Start a Project</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="home">
+        <div class="wrap">
+          <div>
+            <p class="eyebrow">Digital Solutions • Web • Systems</p>
+            <h1>We build digital experiences that move brands forward.</h1>
+            <p class="sub">
+              From high-converting websites to custom digital systems, Neo Tech
+              helps businesses and personal brands turn ideas into powerful
+              online experiences.
+            </p>
+            <div class="ctas">
+              <a class="btn btn-p" href="#contact">Start a Project</a
+              ><a class="btn btn-s" href="#work">View Our Work</a>
+            </div>
+            <p class="chat">
+              Prefer to talk?
+              <a data-wa href="#" target="_blank" rel="noopener"
+                >Message us on WhatsApp →</a
+              >
+            </p>
+          </div>
+          <div class="vis" id="hv">
+            <div class="shot">
+              <div class="bar"><i></i><i></i><i></i></div>
+              <div class="fr"></div>
+              <span>Project screenshot</span>
+            </div>
+            <div class="phone ph" id="hp"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="strip">
+        <div class="wrap">
+          <strong>Built for ambitious brands</strong>
+          <ul>
+            <li>Website Design And Development</li>
+            <li>Digital Platforms</li>
+            <li>Mobile Applications</li>
+            <li>Custom Systems</li>
+            <li>Responsive Experiences</li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="services">
+        <div class="wrap">
+          <div class="head rv">
+            <p class="eyebrow">Services</p>
+            <h2>What we build</h2>
+            <p class="sub">
+              Digital experiences designed around the way your business actually
+              works.
+            </p>
+          </div>
+          <div class="grid c4" id="svc"></div>
+        </div>
+      </section>
+
+      <section
+        id="work"
+        style="
+          background: rgba(17, 26, 43, 0.6);
+          border-block: 1px solid var(--line);
+        "
+      >
+        <div class="wrap">
+          <div class="head rv">
+            <p class="eyebrow">Work</p>
+            <h2>Selected Work</h2>
+            <p class="sub">A look at what we’ve built.</p>
+          </div>
+          <div class="work" id="projects"></div>
+        </div>
+      </section>
+
+      <section id="why">
+        <div class="wrap">
+          <div class="head rv">
+            <p class="eyebrow">Difference</p>
+            <h2>Why Neo Tech</h2>
+          </div>
+          <div class="why rv">
+            <div>
+              <h3>Built around your business</h3>
+              <p>
+                We don’t start with a template. We start by understanding what
+                your business actually needs.
+              </p>
+            </div>
+            <div>
+              <h3>More than a website</h3>
+              <p>
+                We can build the systems behind your website — dashboards,
+                portals, databases and custom functionality.
+              </p>
+            </div>
+            <div>
+              <h3>Fast &amp; focused</h3>
+              <p>
+                As a lean technology studio, we keep projects focused, practical
+                and efficient.
+              </p>
+            </div>
+            <div>
+              <h3>Built to grow</h3>
+              <p>
+                Your digital presence should be able to evolve as your business
+                grows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="process"
+        style="
+          background: rgba(17, 26, 43, 0.6);
+          border-block: 1px solid var(--line);
+        "
+      >
+        <div class="wrap">
+          <div class="head rv">
+            <p class="eyebrow">Process</p>
+            <h2>From idea to launch.</h2>
+          </div>
+          <div class="steps rv">
+            <div class="step">
+              <span class="num" style="margin-bottom: 10px">01</span>
+              <h3>Discover</h3>
+              <p>
+                We understand your business, goals and what your customers need.
+              </p>
+            </div>
+            <div class="step">
+              <span class="num" style="margin-bottom: 10px">02</span>
+              <h3>Design</h3>
+              <p>
+                We create the structure and visual direction for your digital
+                experience.
+              </p>
+            </div>
+            <div class="step">
+              <span class="num" style="margin-bottom: 10px">03</span>
+              <h3>Build</h3>
+              <p>We develop the website or system using modern technologies.</p>
+            </div>
+            <div class="step">
+              <span class="num" style="margin-bottom: 10px">04</span>
+              <h3>Launch</h3>
+              <p>We deploy, test and hand over a polished digital product.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="wrap about">
+          <div class="rv">
+            <p class="eyebrow">About</p>
+            <h2>Independent by design. Serious about technology.</h2>
+            <p class="lead">
+              Neo Tech is an independent digital technology studio focused on
+              building high-quality websites, digital platforms and custom
+              systems for ambitious businesses and personal brands.
+            </p>
+            <p>
+              We believe businesses shouldn’t need massive budgets or massive
+              teams to have exceptional digital products.
+            </p>
+          </div>
+          <div class="founder rv">
+            <div class="avatar" id="fi">Founder photo<br />4:5</div>
+            <div>
+              <h3>Wandile “Neo” Tshuma</h3>
+              <p style="color: var(--gold)">
+                Developer • Digital Builder • Fitness Entrepreneur
+              </p>
+              <p>
+                Combines software development, product thinking and
+                entrepreneurship to create practical digital solutions that
+                solve real business problems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="big">
+        <div class="wrap rv">
+          <h2>Have an idea? Let’s build it.</h2>
+          <p class="sub">
+            Whether you need a website, digital platform or custom system, let’s
+            turn your idea into something people can actually use.
+          </p>
+          <div class="ctas">
+            <a class="btn btn-p" href="#contact">Start a Project</a
+            ><a
+              class="btn btn-wa"
+              data-wa
+              href="#"
+              rel="noopener"
+              target="_blank"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 12a8 8 0 0 1-11.7 7L4 20l1.1-4.9A8 8 0 1 1 21 12z"
+                /></svg
+              >WhatsApp Us</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="wrap contact">
+          <div class="rv">
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s talk.</h2>
+            <form id="f" style="margin-top: 28px">
+              <div class="row">
+                <label
+                  >Name<input name="name" required autocomplete="name" /></label
+                ><label
+                  >Email<input
+                    name="email"
+                    type="email"
+                    required
+                    autocomplete="email"
+                /></label>
+              </div>
+              <label
+                >Business / Brand<input
+                  name="brand"
+                  autocomplete="organization"
+              /></label>
+              <div class="row">
+                <label
+                  >What do you need?<select name="need">
+                    <option>Website</option>
+                    <option>Digital platform</option>
+                    <option>Custom system</option>
+                    <option>Not sure yet</option>
+                  </select></label
+                >
+                <label
+                  >Budget range<select name="budget">
+                    <option>Not sure yet</option>
+                    <option>Under $500</option>
+                    <option>$500 – $1,500</option>
+                    <option>$1,500 – $5,000</option>
+                    <option>$5,000+</option>
+                  </select></label
+                >
+              </div>
+              <label>Message<textarea name="msg"></textarea></label>
+              <button class="btn btn-p" type="submit">
+                Send Project Enquiry
+              </button>
+              <p class="note">
+                Opens your email app with the enquiry pre-filled.
+              </p>
+            </form>
+          </div>
+          <div class="direct rv" style="margin-top: 8px">
+            <a class="wa" data-wa href="#" target="_blank" rel="noopener"
+              ><span>Chat on WhatsApp</span> <small id="waT"></small
+            ></a>
+            <a data-mail href="#">Email <small id="mT"></small></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="f">
+          <div>
+            <div class="logo" style="color: var(--fg)">NEO <b>TECH</b></div>
+            <p style="margin-top: 8px">
+              Websites • Digital Platforms • Custom Systems
+            </p>
+          </div>
+          <nav aria-label="Footer">
+            <a href="#home">Home</a><a href="#services">Services</a
+            ><a href="#work">Work</a><a href="#process">Process</a
+            ><a href="#about">About</a>
+          </nav>
+          <div class="soc" id="soc"></div>
+        </div>
+        <p class="copy">© 2026 Neo Tech. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <a
+      class="fab"
+      data-wa
+      href="#"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat on WhatsApp"
+      ><svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <path d="M21 12a8 8 0 0 1-11.7 7L4 20l1.1-4.9A8 8 0 1 1 21 12z" /></svg
+      >WhatsApp</a
+    >
+
+    <dialog id="dlg" aria-labelledby="dt">
+      <button class="mx" aria-label="Close">×</button>
+      <div class="m" id="dc"></div>
+    </dialog>
+
+    <script>
+      /* ===== EDIT HERE: site config & portfolio data ===== */
+      const CONFIG = {
+        hero: { desktop: "", mobile: "" }, // screenshot paths for the hero frames
+        founderImage: "/founder3.jpeg", // portrait path (4:5)
+        email: "wandileneo4@gmail.com",
+        whatsapp: "263717435097", // digits only, with country code
+        whatsappLabel: "+263 71 743 5097",
+        social: {
+          Instagram: "YOUR_INSTAGRAM_URL",
+          LinkedIn: "YOUR_LINKEDIN_URL",
+          GitHub: "YOUR_GITHUB_URL",
+        },
+      };
+      const SERVICES = [
+        {
+          t: "Websites",
+          d: "Professional websites designed to establish credibility, communicate your value and turn visitors into customers.",
+          i: [
+            "Business websites",
+            "Personal brands",
+            "Landing pages",
+            "Portfolio websites",
+          ],
+        },
+        {
+          t: "Digital Platforms",
+          d: "More than a website. Platforms that let your customers, clients or teams interact with your business.",
+          i: [
+            "Client portals",
+            "Booking systems",
+            "Coaching platforms",
+            "Membership platforms",
+          ],
+        },
+        {
+          t: "Custom Systems",
+          d: "We turn manual processes into streamlined digital systems.",
+          i: [
+            "Dashboards",
+            "Authentication",
+            "Databases",
+            "Admin & tracking systems",
+          ],
+        },
+        {
+          t: "Digital Infrastructure",
+          d: "The infrastructure behind your online presence.",
+          i: ["Domain setup", "Deployment", "Analytics", "Basic SEO"],
+        },
+      ];
+      /* status: "live" | "soon". image: path to screenshot (optional). url: live link ("" hides button) */
+      const PROJECTS = [
+        {
+          id: "neocoaching",
+          name: "NeoCoaching",
+          status: "live",
+          category: "Fitness • Digital Platform",
+          desc: "A complete digital coaching platform connecting coaches and clients through workouts, meal plans, tracking and accountability tools.",
+          tech: [
+            "Next.js",
+            "Supabase",
+            "Tailwind CSS",
+            "Authentication",
+            "Database",
+            "Responsive UI",
+          ],
+          url: "https://neocoaching.online",
+          image: "/neocoachig_1.PNG",
+          cta: "View Case Study",
+          problem:
+            "Create a professional digital coaching platform that could manage the relationship between coaches and clients.",
+          solution:
+            "Neo Tech built a custom web platform with client dashboards, coach functionality and digital tracking.",
+          features: [
+            "Client Dashboard",
+            "Coach Portal",
+            "Meal Plans",
+            "Workout Plans",
+            "Daily Tracking",
+            "Progress Photos",
+            "Accountability System",
+          ],
+          outcome: "Deployed and live at neocoaching.online.",
+        },
+        {
+          id: "balancemytrip",
+          name: "BalanceMyTrip",
+          status: "live",
+          category: "Travel • Web Application",
+          desc: "A smart travel platform that simplifies trip planning, shared expense management, and budgeting, helping travellers organize their journey without the hassle.",
+          tech: ["React", "Web Application"],
+          url: "",
+          image: "/balancemytrip.PNG",
+          cta: "View Project",
+          problem:
+            "Trip planning is often scattered across notes, messaging apps, spreadsheets, booking platforms, and multiple browser tabs. Travellers also struggle to keep track of itineraries, activities, shared expenses, and budgets, making it difficult to stay organized and avoid unnecessary spending.",
+          solution:
+            "BalanceMyTrip is a centralized web application that brings trip planning, travel management, budgeting, and expense tracking into one place. It provides travellers with a structured way to organize their journeys, manage their plans, and keep their travel spending under control.",
+          features: [
+            "Trip planning",
+            "Budget Management",
+            "Travel management",
+            "Expense Tracking",
+            "Itinerary Management",
+          ],
+          outcome: "",
+        },
+        {
+          id: "nexaConsulting",
+          name: "Nexa Consulting",
+          status: "live",
+          category: "Business • Coperate • Website",
+          desc: "A professional website for Nexa Consulting, a business consulting firm, showcasing their services and expertise.",
+          tech: ["Next.js", "Tailwind CSS", "Responsive UI"],
+          url: "",
+          image: "/nexaConsulting.PNG",
+          problem:
+            "Nexa Consulting needed a professional online presence to showcase their services and expertise.",
+          solution:
+            "Neo Tech designed and developed a modern, responsive website that effectively communicates Nexa Consulting's value proposition and services.",
+          features: [
+            "Responsive Design",
+            "Service Pages",
+            "Contact Form",
+            "SEO Optimization",
+          ],
+          outcome:
+            "The website is live and serves as a key marketing tool for Nexa Consulting.",
+        },
+      ];
+      /* ===== render ===== */
+      const $ = (s) => document.querySelector(s),
+        esc = (s) =>
+          String(s).replace(
+            /[&<>"]/g,
+            (c) =>
+              ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c],
+          );
+      const isPH = (v) => !v || v.startsWith("YOUR_");
+      $("#svc").innerHTML = SERVICES.map(
+        (s, n) =>
+          `<article class="card rv"><span class="num">0${n + 1}</span><h3>${s.t}</h3><p>${s.d}</p><ul>${s.i.map((x) => `<li>${x}</li>`).join("")}</ul></article>`,
+      ).join("");
+      const shot = (p) =>
+        `<div class="shot"><div class="bar"><i></i><i></i><i></i></div>${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)} screenshot" loading="lazy" width="1600" height="1000">` : `<div class="fr"></div><span>Screenshot placeholder</span>`}</div>`;
+      const [F, ...R] = PROJECTS.filter((p) => p.status === "live"),
+        tg = (p) => p.tech.slice(0, 4).join(" • ");
+      $("#projects").innerHTML =
+        `<article class="feat rv">${shot(F)}<div class="ft"><span class="cat">Featured case study · ${F.category}</span><h3>${F.name}</h3><p>${F.desc}</p><div class="chips">${F.features
+          .slice(0, 4)
+          .map((f) => `<span>${f}</span>`)
+          .join(
+            "",
+          )}</div><div class="tags">${tg(F)}</div><div class="acts"><button class="btn btn-p" data-open="${F.id}">Read Case Study</button>${F.url ? `<a class="btn btn-s" href="${esc(F.url)}" target="_blank" rel="noopener">Visit Live ↗</a>` : ""}</div></div></article>` +
+        R.map(
+          (p) =>
+            `<article class="sec rv">${shot(p)}<div class="ft"><span class="cat">${p.category}</span><h3>${p.name}</h3><p>${p.desc}</p><div class="tags">${tg(p)}</div><div class="acts"><button class="btn btn-s" data-open="${p.id}">${p.cta}</button></div></div></article>`,
+        ).join("") +
+        `<div class="more rv"><p><b>More projects coming soon.</b> Yours could be next.</p><a class="btn btn-s" href="#contact">Start a Project</a></div>`;
+      const dlg = $("#dlg");
+      function openP(id) {
+        const p = PROJECTS.find((x) => x.id === id);
+        $("#dc").innerHTML =
+          `<p class="cat">${p.category}</p><h2 id="dt">${p.name}</h2><p>${p.desc}</p>${shot(p)}
+      <h4>The Challenge</h4><p>${p.problem}</p><h4>The Solution</h4><p>${p.solution}</p>
+      <h4>Key Features</h4><div class="chips">${p.features.map((f) => `<span>${f}</span>`).join("")}</div>
+      <h4>Built With</h4><div class="chips">${p.tech.map((f) => `<span>${f}</span>`).join("")}</div>
+      ${p.outcome ? `<h4>Outcome</h4><p>${p.outcome}</p>` : ""}
+      ${p.url ? `<a class="btn btn-p" href="${esc(p.url)}" target="_blank" rel="noopener">Visit Live Website ↗</a>` : `<p class="note" style="margin-top:24px">Live link coming soon.</p>`}`;
+        dlg.showModal();
+      }
+      document.addEventListener("click", (e) => {
+        const o = e.target.closest("[data-open]");
+        if (o) openP(o.dataset.open);
+        if (e.target.closest(".mx") || e.target === dlg) dlg.close();
+      });
+      /* contact */
+      const wa = isPH(CONFIG.whatsapp)
+        ? "#contact"
+        : `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Hi Neo Tech, I'd like to start a project.")}`;
+      document.querySelectorAll("[data-wa]").forEach((a) => {
+        a.href = wa;
+        if (wa === "#contact") {
+          a.removeAttribute("target");
+        }
+      });
+      $("[data-mail]").href = isPH(CONFIG.email)
+        ? "#contact"
+        : `mailto:${CONFIG.email}`;
+      $("#waT").textContent = CONFIG.whatsappLabel || CONFIG.whatsapp;
+      $("#mT").textContent = CONFIG.email;
+      $("#f").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const d = Object.fromEntries(new FormData(e.target));
+        const body = `Name: ${d.name}\nEmail: ${d.email}\nBusiness/Brand: ${d.brand}\nNeed: ${d.need}\nBudget: ${d.budget}\n\n${d.msg}`;
+        location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent("Project enquiry — " + d.name)}&body=${encodeURIComponent(body)}`;
+      });
+      $("#soc").innerHTML = Object.entries(CONFIG.social)
+        .map(
+          ([k, v]) =>
+            `<a href="${isPH(v) ? "#" : esc(v)}" ${isPH(v) ? "" : 'target="_blank" rel="noopener"'}>${k}</a>`,
+        )
+        .join("");
+      /* image slots */
+      if (CONFIG.hero.desktop) {
+        const f = $("#hv .shot");
+        f.querySelector(".fr").remove();
+        f.querySelector("span").remove();
+        f.insertAdjacentHTML(
+          "beforeend",
+          `<img src="${esc(CONFIG.hero.desktop)}" alt="Neo Tech project preview" width="1600" height="1000">`,
+        );
+      }
+      if (CONFIG.hero.mobile) {
+        const p = $("#hp");
+        p.classList.remove("ph");
+        p.innerHTML = `<img src="${esc(CONFIG.hero.mobile)}" alt="Neo Tech mobile project preview" width="360" height="760">`;
+      }
+      if (CONFIG.founderImage)
+        $("#fi").innerHTML =
+          `<img src="${esc(CONFIG.founderImage)}" alt="Wandile “Neo” Tshuma" width="400" height="500">`;
+      /* nav */
+      const b = document.querySelector(".burger"),
+        m = $("#menu");
+      b.addEventListener("click", () => {
+        const x = b.getAttribute("aria-expanded") === "true";
+        b.setAttribute("aria-expanded", !x);
+        m.classList.toggle("open", !x);
+      });
+      m.addEventListener("click", (e) => {
+        if (e.target.closest("a")) {
+          b.setAttribute("aria-expanded", "false");
+          m.classList.remove("open");
+        }
+      });
+      /* logo: replace /images/neo-tech-mark.png with your file; placeholder shows until it exists */
+      const mk = document.querySelector(".mark"),
+        mkFix = () => {
+          if (!mk.isConnected) return;
+          mk.outerHTML =
+            '<svg class="mark" viewBox="0 0 32 32" role="img" aria-label="Neo Tech" fill="none" stroke="#D4AF37" stroke-width="3" stroke-linejoin="miter"><path d="M7 26V6l18 20V6"/></svg>';
+        };
+      if (mk.complete && mk.naturalWidth === 0) mkFix();
+      else mk.addEventListener("error", mkFix, { once: true });
+      /* header scroll state */
+      const hd = document.querySelector("header"),
+        sc = () => hd.classList.toggle("sc", scrollY > 12);
+      sc();
+      addEventListener("scroll", sc, { passive: true });
+      b.addEventListener("click", () =>
+        hd.classList.toggle("op", m.classList.contains("open")),
+      );
+      m.addEventListener("click", (e) => {
+        if (e.target.closest("a")) hd.classList.remove("op");
+      });
+      /* reveal */
+      const io = new IntersectionObserver(
+        (es) =>
+          es.forEach((x) => {
+            if (x.isIntersecting) {
+              x.target.classList.add("in");
+              io.unobserve(x.target);
+            }
+          }),
+        { rootMargin: "0px 0px -8% 0px" },
+      );
+      document.querySelectorAll(".rv").forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>
