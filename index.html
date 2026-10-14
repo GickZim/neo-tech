@@ -606,7 +606,8 @@
         border-radius: 50%;
         background: #2c3a54;
       }
-      .shot .fr {
+      .shot .fr,
+      .mp-stage .fr {
         position: absolute;
         inset: 26px 0 0 0;
         background:
@@ -637,7 +638,7 @@
         border-radius: 10px;
         background: var(--bg);
         color: var(--fg);
-        width: min(720px, calc(100% - 24px));
+        width: min(820px, calc(100% - 24px));
         max-height: calc(100dvh - 24px);
         padding: 0;
         margin: auto;
@@ -705,6 +706,227 @@
         }
         .m .btn {
           width: auto;
+        }
+      }
+      /* media preview (project modal) */
+      .mp {
+        margin: 22px 0 4px;
+        padding: 0;
+      }
+      .mp-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 36px;
+        margin-bottom: 10px;
+      }
+      .mp-title {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .mp-side {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        color: var(--mute);
+        white-space: nowrap;
+        flex: none;
+      }
+      .mp-back {
+        min-height: 36px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        background: none;
+        color: var(--fg);
+        font: inherit;
+        font-size: 13px;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .mp-back:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .mp-frame {
+        border: 1px solid #34425c;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #0d1626;
+        box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+      }
+      .mp-frame .bar {
+        position: relative;
+      }
+      .mp-stage {
+        position: relative;
+        aspect-ratio: 16/10;
+        background: #0a111d;
+        touch-action: pan-y;
+      }
+      .mp-stage .fr {
+        inset: 0;
+      }
+      .mp-stage video,
+      .mp-stage .mp-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: top;
+      }
+      .mp-stage .mp-img {
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+      .mp-stage .mp-img.ld {
+        opacity: 1;
+      }
+      .mp-stage .mp-img.contain {
+        object-fit: contain;
+        object-position: center;
+        background: #0a111d;
+      }
+      .mp-stage video {
+        background: #0a111d;
+      }
+      .mp-stage [hidden] {
+        display: none !important;
+      }
+      .mp-cap {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--mute);
+        background: var(--bg);
+        padding: 6px 14px;
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        white-space: nowrap;
+      }
+      .mp-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(245, 247, 250, 0.14);
+        background: rgba(11, 18, 32, 0.72);
+        color: var(--fg);
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+        z-index: 2;
+        display: grid;
+        place-content: center;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .mp-nav:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .mp-nav.prev {
+        left: 8px;
+      }
+      .mp-nav.next {
+        right: 8px;
+      }
+      .mp[data-multi="0"] .mp-nav,
+      .mp[data-multi="0"] .mp-thumbs {
+        display: none;
+      }
+      .mp-stage:has(video:not([hidden])) .mp-nav {
+        top: calc(50% - 24px);
+      }
+      .mp-thumbs {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 12px 2px 6px;
+        scroll-snap-type: x proximity;
+        scrollbar-width: thin;
+      }
+      .mp-t {
+        flex: 0 0 auto;
+        width: 96px;
+        display: grid;
+        gap: 6px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--mute);
+        font: inherit;
+        font-size: 11px;
+        text-align: left;
+        cursor: pointer;
+        scroll-snap-align: start;
+      }
+      .mp-tw {
+        position: relative;
+        display: block;
+        aspect-ratio: 16/10;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #152036, #0d1626);
+        transition: border-color 0.2s;
+      }
+      .mp-tw img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+      }
+      .mp-tw.ct img {
+        object-fit: contain;
+        object-position: center;
+      }
+      .mp-tw svg {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 22px;
+        height: 22px;
+        transform: translate(-50%, -50%);
+        color: var(--fg);
+        filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.6));
+      }
+      .mp-t:hover .mp-tw {
+        border-color: #4a5b7a;
+      }
+      .mp-t[aria-current="true"] .mp-tw {
+        border-color: var(--gold);
+      }
+      .mp-t[aria-current="true"] {
+        color: var(--fg);
+      }
+      .mp-tl {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      @media (min-width: 600px) {
+        .mp-t {
+          width: 116px;
         }
       }
       /* why / process */
@@ -1544,7 +1766,7 @@
         whatsappLabel: "+263 71 743 5097",
         social: {
           Instagram: "YOUR_INSTAGRAM_URL",
-          LinkedIn: "www.linkedin.com/in/wandile-tshuma",
+          LinkedIn: "https://www.linkedin.com/in/wandile-tshuma",
           GitHub: "",
         },
       };
@@ -1585,7 +1807,10 @@
           i: ["Domain setup", "Deployment", "Analytics", "Basic SEO"],
         },
       ];
-      /* status: "live" | "soon". image: path to screenshot (optional). url: live link ("" hides button) */
+      /* status: "live" | "soon". image: card screenshot path (optional; also used as the modal image when a project has no media). url: live link ("" hides button).
+         media (optional, used by the project modal):
+           video: "path.mp4" (optional), poster: "path.webp" (shown before the video loads),
+           shots: [{src, label, alt, fit?: "contain"}]  - missing files are skipped automatically. */
       const PROJECTS = [
         {
           id: "neocoaching",
@@ -1666,6 +1891,55 @@
             "The website is live and serves as a key marketing tool for Nexa Consulting.",
         },
         {
+          id: "signature-hair-pedi-lounge",
+          name: "Signature Hair & Pedi Lounge",
+          status: "live",
+          category: "Beauty • E-commerce • Salon • Website",
+          desc: "An e-commerce website for Signature Hair & Pedi Lounge, allowing customers to browse and purchase beauty products and services online.",
+          tech: ["Shopify", "Responsive UI", "Payment Integration"],
+          url: "",
+          image: "/signature-hair-pedi-lounge.PNG",
+          media: {
+            video: "assets/signature-hair-pedi-lounge/walkthrough.mp4",
+            poster: "assets/signature-hair-pedi-lounge/homepage.webp",
+            shots: [
+              {
+                src: "assets/signature-hair-pedi-lounge/homepage.webp",
+                label: "Homepage",
+                alt: "Signature Hair & Pedi Lounge homepage on desktop",
+              },
+              {
+                src: "assets/signature-hair-pedi-lounge/collections.webp",
+                label: "Collections",
+                alt: "Signature Hair & Pedi Lounge collections page",
+              },
+              {
+                src: "assets/signature-hair-pedi-lounge/product-details.webp",
+                label: "Product Details",
+                alt: "Signature Hair & Pedi Lounge product details page",
+              },
+              {
+                src: "assets/signature-hair-pedi-lounge/shopping-cart.webp",
+                label: "Shopping Cart",
+                alt: "Signature Hair & Pedi Lounge shopping cart",
+              },
+              {
+                src: "assets/signature-hair-pedi-lounge/mobile-homepage.webp",
+                label: "Mobile Homepage",
+                alt: "Signature Hair & Pedi Lounge homepage on a phone",
+                fit: "contain",
+              },
+            ],
+          },
+          problem:
+            "Signature Hair & Pedi Lounge needed an online presence that shows its products and services and makes it easy for clients to get in touch.",
+          solution:
+            "Neo Tech designed a modern, responsive website for browsing products and services.",
+          features: ["Product Catalog", "Shopping Cart", "Responsive Design"],
+          cta: "View Project",
+          outcome: "",
+        },
+        {
           id: "HouseOfsandalsnewlands",
           name: "House of Sandals Newlands",
           status: "live",
@@ -1674,6 +1948,38 @@
           tech: ["Shopify", "Responsive UI", "Payment Integration"],
           url: "",
           image: "/houseOfSandalsNewlands.PNG",
+          media: {
+            video: "assets/house-of-sandals/walkthrough.mp4",
+            poster: "assets/house-of-sandals/homepage.webp",
+            shots: [
+              {
+                src: "assets/house-of-sandals/homepage.webp",
+                label: "Homepage",
+                alt: "House of Sandals Newlands homepage on desktop",
+              },
+              {
+                src: "assets/house-of-sandals/collections.webp",
+                label: "Collections",
+                alt: "House of Sandals Newlands collections page",
+              },
+              {
+                src: "assets/house-of-sandals/product-details.webp",
+                label: "Product Details",
+                alt: "House of Sandals Newlands product details page",
+              },
+              {
+                src: "assets/house-of-sandals/shopping-cart.webp",
+                label: "Shopping Cart",
+                alt: "House of Sandals Newlands shopping cart",
+              },
+              {
+                src: "assets/house-of-sandals/mobile-homepage.webp",
+                label: "Mobile Homepage",
+                alt: "House of Sandals Newlands homepage on a phone",
+                fit: "contain",
+              },
+            ],
+          },
           problem:
             "House of Sandals Newlands needed an online store to advertise their products and reach a wider audience.",
           solution:
@@ -1719,17 +2025,294 @@
         ).join("") +
         `<div class="more rv"><p><b>More projects coming soon.</b> Yours could be next.</p><a class="btn btn-s" href="#contact">Start a Project</a></div>`;
       const dlg = $("#dlg");
+      /* graceful fallback if a card/hero screenshot file is missing */
+      document.addEventListener(
+        "error",
+        (e) => {
+          const t = e.target;
+          if (t.tagName === "IMG" && t.closest(".shot")) {
+            const s = t.closest(".shot");
+            t.remove();
+            if (!s.querySelector(".fr"))
+              s.insertAdjacentHTML(
+                "beforeend",
+                '<div class="fr"></div><span>Screenshot placeholder</span>',
+              );
+          }
+        },
+        true,
+      );
+      /* ===== reusable media preview: walkthrough video + screenshot gallery ===== */
+      const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const PLAY =
+        '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
+      let PV = null; // preview currently open
+      const stopAllVideos = () =>
+        document.querySelectorAll("video").forEach((v) => v.pause());
+      function mediaPreview(p) {
+        return `<section class="mp" data-multi="0" aria-label="${esc(p.name)} preview">
+          <div class="mp-label"><span class="mp-title" aria-live="polite"></span><span class="mp-side"></span></div>
+          <div class="mp-frame"><div class="bar"><i></i><i></i><i></i></div>
+            <div class="mp-stage">
+              <video muted loop playsinline controls preload="metadata" hidden aria-label="${esc(p.name)} website walkthrough"></video>
+              <img class="mp-img" alt="" hidden decoding="async">
+              <div class="fr" hidden></div><span class="mp-cap" hidden>Preview coming soon</span>
+              <button type="button" class="mp-nav prev" aria-label="Previous preview">‹</button>
+              <button type="button" class="mp-nav next" aria-label="Next preview">›</button>
+            </div></div>
+          <div class="mp-thumbs" role="group" aria-label="${esc(p.name)} preview gallery"></div></section>`;
+      }
+      function initPreview(root, p) {
+        const m = p.media || {},
+          v = root.querySelector("video"),
+          img = root.querySelector(".mp-img"),
+          fr = root.querySelector(".fr"),
+          cap = root.querySelector(".mp-cap"),
+          title = root.querySelector(".mp-title"),
+          side = root.querySelector(".mp-side"),
+          strip = root.querySelector(".mp-thumbs"),
+          stage = root.querySelector(".mp-stage");
+        const items = [];
+        let fb = false;
+        const live = () => items.map((x, i) => i).filter((i) => !items[i].bad);
+        function addItem(it) {
+          const i = items.push(it) - 1;
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "mp-t";
+          b.setAttribute(
+            "aria-label",
+            it.type === "video"
+              ? "Play website walkthrough"
+              : "Show screenshot: " + it.label,
+          );
+          b.innerHTML = `<span class="mp-tw${it.fit === "contain" ? " ct" : ""}">${it.thumb ? `<img src="${esc(it.thumb)}" alt="" loading="lazy" decoding="async" width="160" height="100">` : ""}${it.type === "video" ? PLAY : ""}</span><span class="mp-tl">${esc(it.short)}</span>`;
+          const t = b.querySelector("img");
+          if (t)
+            t.addEventListener(
+              "error",
+              () => {
+                if (it.type === "video") t.remove();
+                else drop(i);
+              },
+              { once: true },
+            );
+          b.addEventListener("click", () => show(i));
+          it.btn = b;
+          strip.appendChild(b);
+          return i;
+        }
+        if (m.video)
+          addItem({
+            type: "video",
+            label: "Website Walkthrough",
+            short: "Walkthrough",
+            thumb: m.poster || "",
+          });
+        (m.shots || []).forEach(
+          (s) =>
+            s &&
+            s.src &&
+            addItem({
+              type: "shot",
+              src: s.src,
+              label: s.label || "Screenshot",
+              short: s.label || "Screenshot",
+              alt: s.alt || "",
+              fit: s.fit,
+              thumb: s.thumb || s.src,
+            }),
+        );
+        function addFallback() {
+          fb = true;
+          show(
+            addItem({
+              type: "shot",
+              src: p.image,
+              label: "Screenshot",
+              short: "Screenshot",
+              alt: p.name + " screenshot",
+              thumb: p.image,
+            }),
+          );
+        }
+        function drop(i) {
+          const it = items[i];
+          if (!it || it.bad) return;
+          it.bad = true;
+          it.btn.remove();
+          if (it.type === "video") {
+            v.pause();
+            v.removeAttribute("src");
+            v.load();
+          }
+          if (i === cur) {
+            cur = -1;
+            const l = live();
+            l.length ? show(l.find((k) => k > i) ?? l[0]) : empty();
+          } else refresh();
+        }
+        function refresh() {
+          root.dataset.multi = live().length > 1 ? "1" : "0";
+        }
+        function empty() {
+          if (!fb && p.image) {
+            addFallback();
+            return;
+          }
+          v.hidden = true;
+          img.hidden = true;
+          fr.hidden = false;
+          cap.hidden = false;
+          title.textContent = "Preview";
+          side.textContent = "";
+          refresh();
+        }
+        let cur = -1;
+        function show(i) {
+          const it = items[i];
+          if (!it || it.bad) return;
+          cur = i;
+          fr.hidden = true;
+          cap.hidden = true;
+          items.forEach((x, k) => {
+            if (x.btn)
+              x.btn.setAttribute("aria-current", k === i ? "true" : "false");
+          });
+          {
+            const b = it.btn,
+              L = b.offsetLeft - strip.offsetLeft;
+            if (
+              L < strip.scrollLeft ||
+              L + b.offsetWidth > strip.scrollLeft + strip.clientWidth
+            )
+              strip.scrollTo({
+                left: L - 8,
+                behavior: REDUCED ? "auto" : "smooth",
+              });
+          }
+          const l = live(),
+            hasV = items.some((x) => x.type === "video" && !x.bad);
+          if (it.type === "video") {
+            img.hidden = true;
+            v.hidden = false;
+            title.textContent = it.label;
+            side.textContent = "";
+            if (!REDUCED) v.play().catch(() => {});
+          } else {
+            v.pause();
+            v.hidden = true;
+            img.hidden = false;
+            img.classList.remove("ld");
+            img.classList.toggle("contain", it.fit === "contain");
+            img.alt = it.alt;
+            img.onload = () => img.classList.add("ld");
+            img.onerror = () => drop(i);
+            img.src = it.src;
+            if (img.complete && img.naturalWidth) img.classList.add("ld");
+            title.textContent = it.label;
+            side.innerHTML =
+              (hasV
+                ? '<button type="button" class="mp-back">▶ Walkthrough</button>'
+                : "") +
+              (l.length > 1
+                ? `<span>${l.indexOf(i) + 1} / ${l.length}</span>`
+                : "");
+            const bb = side.querySelector(".mp-back");
+            if (bb)
+              bb.addEventListener("click", () => {
+                const k = items.findIndex((x) => x.type === "video" && !x.bad);
+                show(k);
+                items[k].btn.focus();
+              });
+          }
+          refresh();
+        }
+        function step(d) {
+          const l = live();
+          if (l.length < 2) return;
+          show(l[(l.indexOf(cur) + d + l.length) % l.length]);
+        }
+        root.querySelector(".prev").addEventListener("click", () => step(-1));
+        root.querySelector(".next").addEventListener("click", () => step(1));
+        let x0 = null,
+          y0 = 0;
+        stage.addEventListener(
+          "touchstart",
+          (e) => {
+            if (e.target === v) return;
+            x0 = e.touches[0].clientX;
+            y0 = e.touches[0].clientY;
+          },
+          { passive: true },
+        );
+        stage.addEventListener(
+          "touchend",
+          (e) => {
+            if (x0 === null) return;
+            const dx = e.changedTouches[0].clientX - x0,
+              dy = e.changedTouches[0].clientY - y0;
+            x0 = null;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5)
+              step(dx < 0 ? 1 : -1);
+          },
+          { passive: true },
+        );
+        if (m.video) {
+          v.muted = true;
+          v.loop = true;
+          v.playsInline = true;
+          if (m.poster) v.poster = m.poster;
+          v.addEventListener("error", () => drop(0));
+          v.src = m.video;
+        }
+        refresh();
+        const first = live()[0];
+        first === undefined ? empty() : show(first);
+        return {
+          step,
+          stop() {
+            v.pause();
+            v.removeAttribute("src");
+            v.load();
+          },
+        };
+      }
       function openP(id) {
         const p = PROJECTS.find((x) => x.id === id);
         $("#dc").innerHTML =
-          `<p class="cat">${p.category}</p><h2 id="dt">${p.name}</h2><p>${p.desc}</p>${shot(p)}
+          `<p class="cat">${p.category}</p><h2 id="dt">${p.name}</h2><p>${p.desc}</p>${mediaPreview(p)}
       <h4>The Challenge</h4><p>${p.problem}</p><h4>The Solution</h4><p>${p.solution}</p>
       <h4>Key Features</h4><div class="chips">${p.features.map((f) => `<span>${f}</span>`).join("")}</div>
       <h4>Built With</h4><div class="chips">${p.tech.map((f) => `<span>${f}</span>`).join("")}</div>
       ${p.outcome ? `<h4>Outcome</h4><p>${p.outcome}</p>` : ""}
       ${p.url ? `<a class="btn btn-p" href="${esc(p.url)}" target="_blank" rel="noopener">Visit Live Website ↗</a>` : `<p class="note" style="margin-top:24px">Live link coming soon.</p>`}`;
+        stopAllVideos();
+        if (PV) {
+          PV.stop();
+          PV = null;
+        }
         dlg.showModal();
+        PV = initPreview($("#dc .mp"), p);
       }
+      dlg.addEventListener("close", () => {
+        if (PV) {
+          PV.stop();
+          PV = null;
+        }
+        stopAllVideos();
+        $("#dc").innerHTML = "";
+      });
+      dlg.addEventListener("keydown", (e) => {
+        if (!PV || e.target.tagName === "VIDEO") return;
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          PV.step(-1);
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          PV.step(1);
+        }
+      });
       document.addEventListener("click", (e) => {
         const o = e.target.closest("[data-open]");
         if (o) openP(o.dataset.open);
